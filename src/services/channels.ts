@@ -1,4 +1,3 @@
-import { nanoid } from "@reduxjs/toolkit"
 import { Channel } from "../slices/channels"
 
 export const getChannels = async () => {
@@ -6,19 +5,22 @@ export const getChannels = async () => {
         setTimeout(() => {
             resolve({data: [
                 {
-                    id: nanoid(),
+                    id: 1,
                     name: 'Michael',
                     about: "You miss 100% of the shots you don't take",
+                    profileUrl: "/maleAvatar.jpg",
                 },
                 {
-                    id: nanoid(),
+                    id: 2,
                     name: 'Dwight Schrute',
-                    about: 'Beets, Bears, Battlestar Galactica'
+                    about: 'Beets, Bears, Battlestar Galactica',
+                    profileUrl: "/maleAvatar.jpg",
                 },
                 {
-                    id: nanoid(),
+                    id: 3,
                     name: 'Jim',
                     about: '- _ -',
+                    profileUrl: "/maleAvatar.jpg",
                 },
             ]})
         }, 500)

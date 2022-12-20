@@ -1,0 +1,31 @@
+.channels{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+.channel{
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    gap: 1em;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+}
+.selected{
+    background-color: rgb(42, 57, 66);
+}
+.channel > .displayPic {
+    width: 3.2em;
+    height: 3.2em;
+    border-radius: 50%;
+}
+.chatContent{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.name{
+    font-size: 1.2em;
+}
+.latestMessage{
+    color: rgba(255, 255, 255, 0.8);
+}
