@@ -1,6 +1,7 @@
 
 .App{
   display: flex;
+  height: calc(100vh - 4em);
 }
 .App-logo {
   height: 40vmin;

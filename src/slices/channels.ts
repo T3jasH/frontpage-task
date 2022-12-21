@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
 import { getChannels } from "../services/channels";
 
@@ -31,20 +31,22 @@ export const fetchChannels = createAsyncThunk(
 
 export const selectChannel = (id: number) => (state: RootState)  => state.channelsReducer.channels.find(channel => channel.id === id)
 export const selectIsChannelLoading = (state: RootState) => state.channelsReducer.isLoading
-export const selectChannelIds = (state: RootState) => state.channelsReducer.channels.map(channel => channel.id)
+export const selectChannelIds = (state: RootState) => state.channelsReducer.channels.map(ch => ch.id)
+export const selectCurrentChannel = (state: RootState) => state.channelsReducer.channels.find(ch => ch.id === state.channelsReducer.currentChannelId)
  
 export const channelsSlice = createSlice(
     {
         name: 'channels',
         initialState,
         reducers: {
-
+            setCurrentChannel: (state, action: PayloadAction<number>) => {
+                state.currentChannelId = action.payload
+            } 
         },
         extraReducers: (builder) => {
             builder.addCase(fetchChannels.fulfilled, (state, action) =>{
                 state.channels = action.payload
                 state.isLoading = false
-                state.currentChannelId = action.payload[0]?.id
             }) 
             builder.addCase(fetchChannels.pending, (state) => {
                 state.isLoading = true
@@ -53,5 +55,7 @@ export const channelsSlice = createSlice(
         }
     }
 )
+
+export const {setCurrentChannel} = channelsSlice.actions
 
 export default channelsSlice.reducer;

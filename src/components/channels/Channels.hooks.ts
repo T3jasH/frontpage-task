@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
-import { useAppDispatch } from '../../app/hooks'
+import { useAppDispatch} from '../../app/hooks'
 import { fetchChannels } from '../../slices/channels'
-import { fetchMessages } from '../../slices/messages'
+import { fetchMessages} from '../../slices/messages'
 
 
 export const useChannelsFetch = () => {
