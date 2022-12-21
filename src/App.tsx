@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ChannelProfile from './components/channelProfile';
 import Channels from './components/channels';
 import Messages from './components/messages';
 
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <Channels/>
       <Messages/>
+      <ChannelProfile/>
     </div>
   );
 }

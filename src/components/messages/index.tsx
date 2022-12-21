@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { selectCurrentChannel, selectIsChannelLoading} from '../../slices/channels';
+import { selectCurrentChannel, selectIsChannelLoading, selectIsProfileOpen, setIsProfileOpen} from '../../slices/channels';
 import { selectIsMessagesLoading, selectMessagesByChannelId, selectText, sendMessage, setText } from '../../slices/messages';
 import { Message } from './Message';
 import style from './Messages.module.css';
@@ -11,6 +11,7 @@ const Messages = () => {
     const isChannelLoading = useAppSelector(selectIsChannelLoading)
     const messages = useAppSelector(selectMessagesByChannelId(currentChannel?.id))
     const text = useAppSelector(selectText)
+    const isProfileOpen = useAppSelector(selectIsProfileOpen)
 
     if(isChannelLoading || isMessagesLoading){
         return <></>
@@ -24,8 +25,10 @@ const Messages = () => {
         </div>
     }
 
-    return <div className={style.container}>
-            <div className={style.profile}>
+    return <div className={`${style.container} ${isProfileOpen === true ? style.profileOpen : ''}`}>
+            <div 
+            className={style.profile} 
+            onClick={() => dispatch(setIsProfileOpen(true))} >
                 <img
                 alt={'Display Pic'}
                 src={currentChannel.profileUrl}

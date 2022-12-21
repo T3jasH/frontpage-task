@@ -7,7 +7,7 @@ import style from './Channels.module.css'
 
 const Channels = () =>{
     const channelIds = useAppSelector(selectChannelIds)
-    const lastMessageTimes = useAppSelector(selectLatestMessageAll)
+    const lastMessageTimes = useAppSelector(selectLatestMessageAll) 
     useChannelsFetch()
     useMessagesFetch()
     const isChannelLoading = useAppSelector(selectIsChannelLoading)
@@ -21,9 +21,8 @@ const Channels = () =>{
 
     const sortByTime = () => {
         const channelIdWithTime = channelIds.map(channel => ({id: channel, time: lastMessageTimes.find(lmt => lmt?.channelId === channel)!.receivedTime }) )
-        channelIdWithTime
+        channelIdWithTime 
         .sort((ch1, ch2) => new Date(ch2.time).getTime() - new Date(ch1.time).getTime() )
-        console.log(lastMessageTimes, channelIdWithTime)
         return channelIdWithTime
         .map(({id}) => (
             <Channel id={id} key={id}/>

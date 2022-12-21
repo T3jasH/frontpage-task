@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     width: 25%;
+    height: calc(100% - 2em);
+    overflow-y: auto;
 }
 .channel{
     width: calc(100% - 2em);

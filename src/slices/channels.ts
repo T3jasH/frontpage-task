@@ -13,12 +13,14 @@ export interface ChannelsState{
     channels: Channel[];
     currentChannelId: number;
     isLoading: boolean;
+    isChannelProfileOpen: boolean
 }
 
 const initialState: ChannelsState = {
     channels: [],
     isLoading: true,
     currentChannelId: -1,
+    isChannelProfileOpen: false,
 }
 
 export const fetchChannels = createAsyncThunk(
@@ -33,7 +35,8 @@ export const selectChannel = (id: number) => (state: RootState)  => state.channe
 export const selectIsChannelLoading = (state: RootState) => state.channelsReducer.isLoading
 export const selectChannelIds = (state: RootState) => state.channelsReducer.channels.map(ch => ch.id)
 export const selectCurrentChannel = (state: RootState) => state.channelsReducer.channels.find(ch => ch.id === state.channelsReducer.currentChannelId)
- 
+export const selectIsProfileOpen = (state: RootState) => state.channelsReducer.isChannelProfileOpen
+
 export const channelsSlice = createSlice(
     {
         name: 'channels',
@@ -41,6 +44,9 @@ export const channelsSlice = createSlice(
         reducers: {
             setCurrentChannel: (state, action: PayloadAction<number>) => {
                 state.currentChannelId = action.payload
+            },
+            setIsProfileOpen: (state, action: PayloadAction<boolean>) => {
+                state.isChannelProfileOpen = action.payload
             } 
         },
         extraReducers: (builder) => {
@@ -56,6 +62,6 @@ export const channelsSlice = createSlice(
     }
 )
 
-export const {setCurrentChannel} = channelsSlice.actions
+export const {setCurrentChannel, setIsProfileOpen} = channelsSlice.actions
 
 export default channelsSlice.reducer;
