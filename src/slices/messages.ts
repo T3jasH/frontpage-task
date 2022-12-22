@@ -72,7 +72,7 @@ export const messagesSlice = createSlice(
                     receivedTime: new Date().toString(),
                     senderId: 0,
                     channelId: action.payload,
-                    id: state.messages[state.messages.length - 1].id + 1,
+                    id: Math.max(...state.messages.map(msg => msg.id)) + 1,
                 })
                 state.text = ''
             }

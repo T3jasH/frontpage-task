@@ -40,7 +40,7 @@ const Messages = () => {
             <div className={style.messages}>
                 {messages
                 .slice()
-                .reverse() 
+                .sort((msg1, msg2) => new Date(msg2.receivedTime).getTime() - new Date(msg1.receivedTime).getTime() )
                 .map(msg => <Message
                 message={msg}
                 key={msg.id}

@@ -87,3 +87,12 @@ textarea {
 .profileOpen{
     width: calc(50% - 2em);
 }
+.time{
+    font-size: 0.8em;
+    letter-spacing: 0.08em;
+    position: relative;
+    left: 100%;
+    transform: translateX(-100%);
+    margin-top: 0.5em;
+    width: max-content;
+}

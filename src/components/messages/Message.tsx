@@ -7,5 +7,11 @@ export const Message = ({message}: {message: IMessage}) => {
         <p>
             {message.text}
         </p>
+        <p className={style.time}>
+            {new Intl.DateTimeFormat('en-IN', {
+                hour: 'numeric',
+                minute: 'numeric',
+            }).format(new Date(message.receivedTime))}
+        </p>
     </div>
 }
