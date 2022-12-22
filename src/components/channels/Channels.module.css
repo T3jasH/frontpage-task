@@ -12,23 +12,38 @@
     gap: 1em;
     border-bottom: solid 0.5px rgba(255, 255, 255, 0.2);
     cursor: pointer;
+    height: 3em;
 }
 .selected{
     background-color: rgb(42, 57, 66);
+}
+.hovering{
+    background-color: rgb(34, 46, 53);
 }
 .channel > .displayPic {
     width: 3.2em;
     height: 3.2em;
     border-radius: 50%;
 }
-.chatContent{
+.chat{
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+    width: 100%;
 }
 .name{
     font-size: 1.2em;
 }
 .latestMessage{
     color: rgba(255, 255, 255, 0.8);
+}
+.chatHeader{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.time{
+    font-size: 0.8em;
+    letter-spacing: 0.08em;
 }

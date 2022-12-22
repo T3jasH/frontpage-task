@@ -25,6 +25,7 @@
     gap: 1em;
     align-items: center;
     cursor: pointer;
+    border-bottom: solid 0.5px rgba(255, 255, 255, 0.2);
 }
 .name{
     font-size: 1.2em;
@@ -48,12 +49,14 @@
 }
 .message {
     position: relative;
-    width: max-content;
     max-width: 85%;
     border-radius: 0.85em;
     border-top-left-radius: 0.25em;
     background-color: rgb(32, 44, 51);
     padding: 0.75em 0.5em;
+    display: flex;
+    gap: 0.75em;
+    width: max-content;
 }
 .shiftRight {
     left: 100%;
@@ -88,11 +91,10 @@ textarea {
     width: calc(50% - 2em);
 }
 .time{
-    font-size: 0.8em;
+    font-size: 0.75em;
     letter-spacing: 0.08em;
     position: relative;
-    left: 100%;
-    transform: translateX(-100%);
-    margin-top: 0.5em;
     width: max-content;
+    top: 100%;
+    transform: translateY(-50%);
 }
